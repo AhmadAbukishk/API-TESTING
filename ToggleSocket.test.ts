@@ -36,5 +36,10 @@ describe("toggle testing", ()=> {
     socketResult = await socketRepository.FindSocketById(26);
     expect(socketResult[0].state).toBe(true);
   });
+
+  it("should return empty array for non-existent socket ID in find operation", async () => {
+    const socketResult = await socketRepository.FindSocketById(999);
+    expect(socketResult).toEqual([]);
+  });
   
 })
